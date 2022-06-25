@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemyTakedamage : MonoBehaviour
 {
+    [SerializeField] GameObject exe;
+
     public float enemyHp = 10f;
     public float currentHp;
 
@@ -17,6 +20,7 @@ public class enemyTakedamage : MonoBehaviour
         if(currentHp <= 0)
         {
             Destroy(gameObject);
+            Instantiate(exe, transform.position, Quaternion.identity);
         }
     }
 }

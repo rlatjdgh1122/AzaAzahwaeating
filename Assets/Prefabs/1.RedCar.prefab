@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7260971460289459017}
   - component: {fileID: 7999541943276960046}
   m_Layer: 0
-  m_Name: 1
+  m_Name: 1.RedCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1d764ec8623755842a15083b384fe0de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e69a6be483acc9545b49d0ae15a91d67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 30.239998, y: 30.239998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

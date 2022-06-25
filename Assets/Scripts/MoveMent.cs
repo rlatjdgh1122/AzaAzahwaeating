@@ -6,10 +6,6 @@ public class MoveMent : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] Vector3 direction;
-    void Start()
-    {
-
-    }
 
     void Update()
     {

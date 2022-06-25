@@ -10,6 +10,7 @@ TagManager:
   - DestroyZone
   - Enemy
   - exe
+  - Boss
   layers:
   - Default
   - TransparentFX

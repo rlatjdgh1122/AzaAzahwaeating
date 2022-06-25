@@ -13,9 +13,9 @@ public class SunBullet : MonoBehaviour
     public Transform pos;
 
     public float MaxTime = 3f;
-    [SerializeField] float currentTime;
+    public float currentTime;
     public float speed = 3f;
-    public float gametime = 10;
+    //public float gametime;
 
     float h = 0;
     float v = 0;
@@ -28,8 +28,8 @@ public class SunBullet : MonoBehaviour
     void Start()
     {
         currentTime = MaxTime;
-        Sunslider.maxValue = gametime;
-        Sunslider.value = gametime;
+        Sunslider.maxValue = currentTime;
+        Sunslider.value = currentTime;
 
     }
 
@@ -39,7 +39,7 @@ public class SunBullet : MonoBehaviour
 
         if (currentTime <= 0)
         {
-            Sunslider.value = 10;
+            Sunslider.value = MaxTime;
            // time = gametime;
             cooltime = false;
 
