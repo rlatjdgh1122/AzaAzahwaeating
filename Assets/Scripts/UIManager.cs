@@ -19,13 +19,13 @@ public class UIManager : MonoBehaviour
     }
     public void SunBulletUp()
     {
-        sun.currentdamge += 0.01f;
+        sun.currentdamge += 1f;
         player.closePanel();
     }
 
     public void PlayerSpeed()
     {
-        player.speed += 1f;
+        player.speed += 3f;
         player.closePanel();
     }
 }

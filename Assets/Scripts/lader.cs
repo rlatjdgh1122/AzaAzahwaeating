@@ -16,8 +16,10 @@ public class lader : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet")
+            || collision.gameObject.CompareTag("BossBullet"))
         {
+            Destroy(collision.gameObject);
             transform.localScale = new Vector3(0, 0, 0);
             iscooltime = true;
         }

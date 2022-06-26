@@ -7,6 +7,9 @@ using DG.Tweening;
 public class boss : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
+    [SerializeField] GameObject bullet1;
+    [SerializeField] GameObject bullet2;
+    [SerializeField] GameObject bullet3;
     [SerializeField] Slider bossSlider;
 
     SpriteRenderer sprite;
@@ -14,11 +17,16 @@ public class boss : MonoBehaviour
 
     public float enemyspon;
     public float time = 1f;
+    float maxtime;
+    float maxbullettime;
+    public float bullettime = 1f;
     public float enemyHp = 10f;
     public float currentHp;
 
     private void Start()
     {
+        maxtime = time;
+        maxbullettime = bullettime;
         move = GetComponent<MoveMent>();
         sprite = GetComponent<SpriteRenderer>();
 
@@ -30,20 +38,45 @@ public class boss : MonoBehaviour
     {
         movepattern();
         time -= Time.deltaTime;
+        bullettime -= Time.deltaTime;
+
         if (time < 0)
         {
 
-            time = 1;
+            time = maxtime;
+            float pattern = Random.Range(0, 2);
             float enemyyy = Random.Range(0, 10);
             float randomX = Random.Range(-10, 10);
             Vector3 x = new Vector3(randomX, 8.4f, 0);
+
+            switch (pattern)
+            {
+                case 0:
+                    Instantiate(bullet1, transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(bullet2, x, Quaternion.identity);
+
+                    break;
+                case 2:
+                    Instantiate(bullet3, x, Quaternion.identity);
+                    break;
+
+
+            }
 
             if (enemyyy < enemyspon)
             {
                 Instantiate(enemy, x, Quaternion.identity);
             }
-
         }
+        //if(bullettime < 0)
+        //{
+        //bullettime = maxbullettime;
+        //StartCoroutine("WW");
+
+        //}
+
 
     }
     public void enemyTakedamaged(float damage)
@@ -56,6 +89,11 @@ public class boss : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /* IEnumerator WW()
+     {
+         Instantiate(bullet1, transform.position, Quaternion.identity);
+         yield return new WaitForSeconds(0.1f);
+     }*/
     IEnumerator EE()
     {
 

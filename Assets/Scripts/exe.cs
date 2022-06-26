@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class exe : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float speed;
+    Vector3 dir;
+    private void Update()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            Debug.Log("È÷È÷");
-            Destroy(gameObject);
-        }
+        GameObject pos = GameObject.Find("player");
+        dir = pos.transform.position - transform.position;
+        transform.Translate(dir * speed * Time.deltaTime);
     }
 }

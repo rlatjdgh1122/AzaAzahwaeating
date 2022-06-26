@@ -12,6 +12,7 @@ TagManager:
   - exe
   - Boss
   - EnemyBullet
+  - BossBullet
   layers:
   - Default
   - TransparentFX

@@ -151,7 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet1: {fileID: 5521068445655124941, guid: e5c8f848fd2bd77478077ce64c9919d8, type: 3}
   bullet2: {fileID: 5521068445655124941, guid: 1434cc045aa71cf42a5f4834d1e55bda, type: 3}
-  time: 2
+  time: 8
+  movetime: 3
   maxtime: 0
 --- !u!60 &6748145251302462798
 PolygonCollider2D:

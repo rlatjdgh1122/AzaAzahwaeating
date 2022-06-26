@@ -7,8 +7,11 @@ public class enemy : MonoBehaviour
     MoveMent move;
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
+
     public float time = 3f;
+    public float movetime = 3f;
     public float maxtime;
+    float speed = 3f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,15 +32,19 @@ public class enemy : MonoBehaviour
         {
             move.MoveTo(Vector3.zero);
             time -= Time.deltaTime;
+            movetime -= Time.deltaTime;
             if (time < 0)
             {
                 Instantiate(bullet1, transform.position + Vector3.right * 1f + Vector3.down * 1f, Quaternion.identity);
                 Instantiate(bullet2, transform.position + Vector3.left * 1f + Vector3.down * 1f, Quaternion.identity);
                 time = maxtime;
             }
-
-
+            if (movetime <= 0)
+            {
+               
+            }
         }
+    
 
     }
 }

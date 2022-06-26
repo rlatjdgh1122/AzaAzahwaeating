@@ -6,7 +6,8 @@ public class DestoryZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "bullet")
+        if(collision.gameObject.CompareTag("bullet") || collision.gameObject.CompareTag("BossBullet") ||
+            collision.gameObject.CompareTag("EnemyBullet"))
         {
             Destroy(collision.gameObject);
         }

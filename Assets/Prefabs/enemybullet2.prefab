@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1415608307584568036}
   - component: {fileID: 5817547840385160969}
-  - component: {fileID: -7919054297010268196}
   - component: {fileID: 4775448949769076143}
   - component: {fileID: 2663849643160938104}
   - component: {fileID: -8605444016836592095}
+  - component: {fileID: -7234978243054369858}
   m_Layer: 0
   m_Name: enemybullet2
   m_TagString: EnemyBullet
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5521068445655124941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.24785882, y: -5.9109397, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.8584906, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7919054297010268196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5521068445655124941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60847c65c5114134da4abdf424ad352c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  direction: {x: 0, y: -1, z: 0}
 --- !u!70 &4775448949769076143
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +135,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7234978243054369858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521068445655124941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209a24c4b257f7f4583af397bed43bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
