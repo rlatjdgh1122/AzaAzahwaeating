@@ -10,9 +10,12 @@ public class PlayerFire : MonoBehaviour
     [SerializeField] Slider LevelUpslider;
     [SerializeField] GameObject LevelUpPanel = null;
 
-    public GameObject Bullet;
-    public GameObject bullet;
-    public Transform pos;
+    SpriteRenderer sprite;
+
+    public GameObject bullet1;
+    public GameObject bullet2;
+    public GameObject bullet3;
+    public GameObject bullet4;
 
     public float bulletDamage = 1f;
     public float CurrentbulletDamage = 1f;
@@ -26,7 +29,7 @@ public class PlayerFire : MonoBehaviour
     public void Start()
     {
         CurrentbulletDamage = bulletDamage;
-
+        sprite = GetComponent<SpriteRenderer>();
         LevelUpPanel.SetActive(false);
         currentHp = playerHp;
         Hpslider.maxValue = currentHp;
@@ -78,8 +81,10 @@ public class PlayerFire : MonoBehaviour
     {
         while (true)
         {
-            GameObject bullet1 = Instantiate(Bullet, transform.position + Vector3.right * 0.5f, transform.rotation);
-            GameObject bullet2 = Instantiate(bullet, transform.position + Vector3.left * 0.7f, transform.rotation);
+            GameObject Bullet1 = Instantiate(bullet1, transform.position + Vector3.right * 0.5f, transform.rotation);
+            GameObject Bullet2 = Instantiate(bullet2, transform.position + Vector3.left * 0.7f , transform.rotation);
+            GameObject Bullet3 = Instantiate(bullet3, transform.position + Vector3.right * 1.5f + Vector3.down * 1f, transform.rotation);
+            GameObject Bullet4 = Instantiate(bullet4, transform.position + Vector3.left * 1.7f + Vector3.down * 1f, transform.rotation);
 
             yield return new WaitForSeconds(attackSpeed);
         }
@@ -94,8 +99,15 @@ public class PlayerFire : MonoBehaviour
     }
     public void takedamage(float damage)
     {
-        playerHp -= damage;
+        currentHp -= damage;
         Hpslider.value = currentHp;
+        StartCoroutine("WW");
+    }
+    IEnumerator WW()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
     }
     public void closePanel()
     {

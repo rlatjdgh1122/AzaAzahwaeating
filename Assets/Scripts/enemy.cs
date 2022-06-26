@@ -7,12 +7,20 @@ public class enemy : MonoBehaviour
     MoveMent move;
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
-    public float time = 2f;
+    public float time = 3f;
     public float maxtime;
-    float currnettime = 0;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerFire>().takedamage(10f);
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
-        time = maxtime;
+        maxtime = time;
         move = GetComponent<MoveMent>();
     }
     private void Update()
@@ -23,24 +31,13 @@ public class enemy : MonoBehaviour
             time -= Time.deltaTime;
             if (time < 0)
             {
+                Instantiate(bullet1, transform.position + Vector3.right * 1f + Vector3.down * 1f, Quaternion.identity);
+                Instantiate(bullet2, transform.position + Vector3.left * 1f + Vector3.down * 1f, Quaternion.identity);
                 time = maxtime;
-                float random = Random.Range(0, 10);
-                if (random < 0.1f)
-                {
-                    StartCoroutine("EE");
-                }
             }
-        }
-    }
-    IEnumerator EE()
-    {
-        while (true)
-        {
-            Instantiate(bullet1, transform.position + Vector3.right * 1f, Quaternion.identity);
-            Instantiate(bullet2, transform.position + Vector3.left * 1f, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
-            
-        }
-    }
 
+
+        }
+
+    }
 }

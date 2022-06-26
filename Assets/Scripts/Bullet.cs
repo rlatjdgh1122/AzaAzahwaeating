@@ -25,6 +25,11 @@ public class Bullet : MonoBehaviour
             collision.GetComponent<boss>().enemyTakedamaged(player.CurrentbulletDamage);
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
     void Update()
     {

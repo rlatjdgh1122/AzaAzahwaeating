@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8706961350188406693}
   - component: {fileID: 7587244715626371654}
   - component: {fileID: -6850410381486230676}
+  - component: {fileID: 1215937219847064956}
   m_Layer: 0
   m_Name: exe
   m_TagString: exe
@@ -99,3 +100,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1215937219847064956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361223257160660918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60847c65c5114134da4abdf424ad352c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  direction: {x: 0, y: -1, z: 0}

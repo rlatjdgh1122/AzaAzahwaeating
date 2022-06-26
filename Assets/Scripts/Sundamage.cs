@@ -20,5 +20,13 @@ public class Sundamage : MonoBehaviour
         {
             collision.GetComponent<enemyTakedamage>().enemyTakedamaged(currentdamge);
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.GetComponent<boss>().enemyTakedamaged(currentdamge);
+        }
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
