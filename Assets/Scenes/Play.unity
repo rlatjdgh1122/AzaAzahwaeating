@@ -1667,7 +1667,7 @@ MonoBehaviour:
   currentTime: 0
   speed: 10
   attackSpeed: 0.08
-  playerHp: 500
+  playerHp: 200
   MaxExe: 3
 --- !u!212 &938023256
 SpriteRenderer:
@@ -4088,10 +4088,11 @@ MonoBehaviour:
   bullet1: {fileID: 5739293933772497454, guid: 6bccbc676780dc145bd8ef79e4148ee9, type: 3}
   bullet2: {fileID: 8827262103637939303, guid: 9972b9b388b57f84a84de9f27400efa1, type: 3}
   bullet3: {fileID: 5020376895517062398, guid: 6af8f643d57b0e64e9d7408dbe0eca61, type: 3}
+  bullet4: {fileID: 6257637089719792510, guid: 2c3db32020fc5d7469f1041027aa3d9e, type: 3}
   bossSlider: {fileID: 1349184449}
-  enemyspon: 5
+  enemyspon: 3
   time: 1
-  bullettime: 4
+  bullettime: 1
   enemyHp: 10000
   currentHp: 0
 --- !u!114 &1879578346

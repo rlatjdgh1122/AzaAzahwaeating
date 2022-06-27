@@ -10,6 +10,7 @@ public class boss : MonoBehaviour
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
     [SerializeField] GameObject bullet3;
+    [SerializeField] GameObject bullet4;
     [SerializeField] Slider bossSlider;
 
     SpriteRenderer sprite;
@@ -34,48 +35,53 @@ public class boss : MonoBehaviour
         bossSlider.maxValue = enemyHp;
         bossSlider.value = enemyHp;
     }
-    private void Update()
+    public void Update()
     {
         movepattern();
         time -= Time.deltaTime;
         bullettime -= Time.deltaTime;
+        if (bullettime < 0)
+        {
+            float pattern = Random.Range(1, 4);
+            float randomX = Random.Range(-10, 10);
+            Vector3 x = new Vector3(randomX, 8.4f, 0);
+            bullettime = maxbullettime;
 
+            switch (pattern)
+            {
+                case 1:
+                    Instantiate(bullet1, transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(bullet2, x, Quaternion.identity);
+
+                    break;
+                case 3:
+                    Instantiate(bullet3, x, Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(bullet4, x, Quaternion.identity);
+                    break;
+            }
+
+
+
+        }
         if (time < 0)
         {
 
             time = maxtime;
-            float pattern = Random.Range(0, 2);
             float enemyyy = Random.Range(0, 10);
             float randomX = Random.Range(-10, 10);
             Vector3 x = new Vector3(randomX, 8.4f, 0);
 
-            switch (pattern)
-            {
-                case 0:
-                    Instantiate(bullet1, transform.position, Quaternion.identity);
-                    break;
-                case 1:
-                    Instantiate(bullet2, x, Quaternion.identity);
 
-                    break;
-                case 2:
-                    Instantiate(bullet3, x, Quaternion.identity);
-                    break;
-
-
-            }
 
             if (enemyyy < enemyspon)
             {
                 Instantiate(enemy, x, Quaternion.identity);
             }
         }
-        //if(bullettime < 0)
-        //{
-        //bullettime = maxbullettime;
-        //StartCoroutine("WW");
-
-        //}
 
 
     }
@@ -89,11 +95,6 @@ public class boss : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    /* IEnumerator WW()
-     {
-         Instantiate(bullet1, transform.position, Quaternion.identity);
-         yield return new WaitForSeconds(0.1f);
-     }*/
     IEnumerator EE()
     {
 
