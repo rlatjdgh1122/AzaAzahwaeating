@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerFire : MonoBehaviour
@@ -65,6 +66,7 @@ public class PlayerFire : MonoBehaviour
         if (LevelUpslider.value == MaxExe)
         {
             LevelUpslider.value = 0;
+            Time.timeScale = 0;
             LevelUpPanel.SetActive(true);
 
         }
@@ -102,6 +104,10 @@ public class PlayerFire : MonoBehaviour
         currentHp -= damage;
         Hpslider.value = currentHp;
         StartCoroutine("WW");
+        if(currentHp <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
     IEnumerator WW()
     {
@@ -112,5 +118,6 @@ public class PlayerFire : MonoBehaviour
     public void closePanel()
     {
         LevelUpPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
