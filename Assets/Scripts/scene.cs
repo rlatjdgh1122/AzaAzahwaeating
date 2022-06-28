@@ -18,4 +18,12 @@ public class scene : MonoBehaviour
     {
         panel.SetActive(false);
     }
+    public void IntroBotton()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void exit()
+    {
+        Application.Quit();
+    }
 }

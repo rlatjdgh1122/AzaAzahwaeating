@@ -7,12 +7,13 @@ public class enemyTakedamage : MonoBehaviour
 {
     [SerializeField] GameObject exe;
     SpriteRenderer sprite;
-
+    public UIManager uiManager;
     public float enemyHp = 10f;
     public float currentHp;
 
     private void Start()
     {
+        uiManager = GameObject.Find("BulletUIManager").GetComponent<UIManager>();
         sprite = GetComponent<SpriteRenderer>();
         currentHp = enemyHp;
     }
@@ -23,6 +24,7 @@ public class enemyTakedamage : MonoBehaviour
         if(currentHp <= 0)
         {
             Destroy(gameObject);
+            uiManager.score += 100;
             Instantiate(exe, transform.position, Quaternion.identity);
         }
     }

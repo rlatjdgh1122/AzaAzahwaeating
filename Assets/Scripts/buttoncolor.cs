@@ -17,10 +17,10 @@ public class buttoncolor : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             sprite.color = Color.red;
-            yield return new WaitForSeconds(1);
-            sprite.color = Color.black;
+            yield return new WaitForSeconds(0.5f);
+            sprite.color = Color.white;
 
         }
     }

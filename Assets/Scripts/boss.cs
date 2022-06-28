@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class boss : MonoBehaviour
 {
+    public UIManager score;
+
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
@@ -26,6 +28,7 @@ public class boss : MonoBehaviour
 
     private void Start()
     {
+        score = GameObject.Find("BulletUIManager").GetComponent<UIManager>();
         maxtime = time;
         maxbullettime = bullettime;
         move = GetComponent<MoveMent>();
@@ -57,7 +60,7 @@ public class boss : MonoBehaviour
 
                     break;
                 case 3:
-                    Instantiate(bullet3, x, Quaternion.identity);
+                    Instantiate(bullet3, transform.position, Quaternion.identity);
                     break;
                 case 4:
                     Instantiate(bullet4, x, Quaternion.identity);
@@ -87,6 +90,7 @@ public class boss : MonoBehaviour
     }
     public void enemyTakedamaged(float damage)
     {
+        score.score += 100;
         currentHp -= damage;
         bossSlider.value -= damage;
         StartCoroutine("EE");
